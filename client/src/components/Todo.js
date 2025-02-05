@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import Axios for HTTP requests
 
-const API_URL = "http://localhost:5000/api/todos";
+const API_URL = "http://localhost:5001/api/todos";
 
 const Todo = () => {
 
