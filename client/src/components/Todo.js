@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import Axios for HTTP requests
 
+const API_URL = "http://localhost:5000/api/todos";
+
 const Todo = () => {
 
     const [newTodo, setNewTodo] = useState(""); // State for input field
@@ -43,22 +45,40 @@ const Todo = () => {
     };
 
     return (
-        <div>
-          <h2>To-Do List</h2>
-          <input
-            type="text"
-            value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}
-            placeholder="Add a new task..."
-          />
-          <button onClick={addTodo}>Add task</button>
+        <div className="w-full max-w-md p-4 bg-white shadow-md rounded-lg">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">What tasks do you have to do?</h2>
+          <div className="flex mb-4">
+            <input
+              type="text"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+              placeholder="Add a new task..."
+              className="w-full p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              onClick={addTodo}
+              className="ml-2 p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Add Task
+            </button>
+          </div>
     
-          <ul>
+          <ul className="space-y-2">
             {todos.map((todo) => (
-                <li key={todo._id}>
-                    <span onClick={() => toggleComplete(todo._id, todo.completed)}>{todo.title}</span>
-                    <button onClick={() => deleteTodo(todo._id)}>Delete</button>
-                </li>
+              <li key={todo._id} className="flex items-center justify-between p-2 bg-gray-50 rounded-md hover:bg-gray-100">
+                <span
+                  onClick={() => toggleComplete(todo._id, todo.completed)}
+                  className={`cursor-pointer ${todo.completed ? "line-through text-gray-500" : "text-gray-800"}`}
+                >
+                  {todo.title}
+                </span>
+                <button
+                  onClick={() => deleteTodo(todo._id)}
+                  className="p-2 text-red-600 hover:bg-red-100 rounded-md"
+                >
+                  Delete
+                </button>
+              </li>
             ))}
           </ul>
         </div>

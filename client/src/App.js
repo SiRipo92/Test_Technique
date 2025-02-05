@@ -4,12 +4,11 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App"> {/* Main container for the application */}
-      <h1>To-Do List</h1>
+    <div className="App bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
+      <h1 className="text-4xl font-bold text-blue-600 mb-6">To-Do List</h1>
       <Todo /> {/* Render the To-Do component inside App */}
     </div>
   );
 }
 
-// Export the App component so it can used in index.js
 export default App;
