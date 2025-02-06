@@ -29,12 +29,22 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Update a to-do item (mark as completed)
+// Update a to-do item (modify title or mark as completed)
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const { completed } = req.body; // Get the completed status from the body
+  const { title, completed } = req.body; // Get title and completed status from the request body
+
   try {
-    const updatedTodo = await Todo.findByIdAndUpdate(id, { completed }, { new: true });
+    const updatedTodo = await Todo.findByIdAndUpdate(
+      id,
+      { title, completed },
+      { new: true } // Return the updated document
+    );
+    
+    if (!updatedTodo) {
+      return res.status(404).json({ message: "To-do item not found" });
+    }
+
     res.status(200).json(updatedTodo); // Return the updated to-do item
   } catch (error) {
     res.status(500).json({ message: "Error updating to-do item", error });
