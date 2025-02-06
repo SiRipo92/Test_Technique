@@ -2,7 +2,7 @@
 This project is a full-stack to-do list application built using React for the front-end, Node.js for the back-end, and MongoDB for storing the to-do items. The app allows users to create, read, update, and delete tasks, making it a practical example of a CRUD (Create, Read, Update, Delete) operation with modern web technologies.
 
 ## Technologies Used
-- **Frontend:** React, Axios
+- **Frontend:** React, Tailwind CSS, Axios
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **State Management:** React useState, useEffect
@@ -11,7 +11,7 @@ This project is a full-stack to-do list application built using React for the fr
 ## Features
 - **View To-Do List:** The app fetches all to-do items from the server and displays them in a list.
 - **Add New Tasks:** Users can add new tasks to the to-do list.
-- **Update Task Status:** Tasks can be marked as completed by clicking on the task name.
+- **Update Task Status:** Tasks can be marked as completed by clicking on the task name and can also be updated.
 - **Delete Tasks:** Tasks can be removed from the list by clicking the "Delete" button next to each task.
 - **Persistent Data:** The to-do items are stored in a MongoDB database, so data persists even if the app is refreshed.
 
@@ -59,14 +59,16 @@ npm install
     ```
     - To start the React client, navigate to the client/ directory and run:
     ```bash
+    npm run build
     npm start
     ````
-    The React app will open on http://localhost:3000, and the server will be running on http://localhost:5000.
+    The React app will open on http://localhost:3000, and the server will be running on http://localhost:5001.
 
 ## Usage
 - **Add a task:** Type a task into the input field and click "Add" to add it to the to-do list.
 - **Complete a task:** Click on a task title to toggle its completion status.
 - **Delete a task:** Click the "Delete" button to remove a task from the list.
+- **Update/Modify a task:** Click on the "Edit" button to modify the title/task and "Save" to update
 
 ### Future (Possible) Enhancements
 - **User Authentication:** Add user login functionality to save personal to-do lists.
